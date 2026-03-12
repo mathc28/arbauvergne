@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:lovable.dev)",
+      "WebFetch(domain:id-preview--2b34c201-4a5b-4491-a43a-358475bd3d09.lovable.app)"
+    ]
+  }
+}
