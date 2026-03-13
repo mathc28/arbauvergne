@@ -127,6 +127,27 @@ function arba_register_post_types() {
         'show_in_rest'  => true,
     ));
 
+    // CPT Conseils
+    register_post_type('conseil', array(
+        'labels' => array(
+            'name'               => 'Conseils',
+            'singular_name'      => 'Conseil',
+            'add_new'            => 'Ajouter un conseil',
+            'add_new_item'       => 'Ajouter un nouveau conseil',
+            'edit_item'          => 'Modifier le conseil',
+            'view_item'          => 'Voir le conseil',
+            'all_items'          => 'Tous les conseils',
+            'search_items'       => 'Rechercher un conseil',
+            'not_found'          => 'Aucun conseil trouvé',
+        ),
+        'public'        => true,
+        'has_archive'   => true,
+        'rewrite'       => array('slug' => 'conseils'),
+        'menu_icon'     => 'dashicons-lightbulb',
+        'supports'      => array('title', 'editor', 'excerpt', 'thumbnail'),
+        'show_in_rest'  => true,
+    ));
+
     // CPT Témoignages
     register_post_type('temoignage', array(
         'labels' => array(
@@ -598,7 +619,7 @@ add_action('wp_enqueue_scripts', function () {
             ARBA_VERSION
         );
     }
-    if (is_page('conseils')) {
+    if (is_post_type_archive('conseil') || is_singular('conseil')) {
         wp_enqueue_style(
             'arba-conseils',
             ARBA_URI . '/assets/css/conseils.css',
